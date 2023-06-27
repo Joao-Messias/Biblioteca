@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use \App\Http\Controllers\Book\BookController;
+use \App\Http\Controllers\Clients\ClientsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +34,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/book/edit/{book}', [BookController::class, 'edit'])->name('book.edit');
     Route::put('/book/edit/{book}', [BookController::class, 'update'])->name('book.update');
     Route::delete('/book/delete/{book}', [BookController::class, 'destroy'])->name('book.destroy');
+    Route::get('/clients', [ClientsController::class, 'index'])->name('clients.index');
+    Route::get('/clients/create', [ClientsController::class, 'create'])->name('clients.create');
+    Route::post('/clients/create', [ClientsController::class, 'store'])->name('clients.store');
+    Route::get('/clients/edit/{client}', [ClientsController::class, 'edit'])->name('clients.edit');
+    Route::put('/clients/edit/{client}', [ClientsController::class, 'update'])->name('clients.update');
+    Route::delete('/clients/delete/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
