@@ -43,7 +43,7 @@ class BookController extends Controller
 
     public function update(BookRequest $request, Book $book)
     {
-        $validated = $request->validated();
+        $validated = $request->all();
         $book->fill($validated);
         $book->save();
         return redirect()->route('book.index');

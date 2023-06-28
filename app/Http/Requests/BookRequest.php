@@ -8,13 +8,18 @@ class BookRequest extends FormRequest
 {
     public function rules(): array
     {
-        return [
+        $rules =  [
             'title' => 'required|string|max:100',
             'author' => 'required|string|max:100',
             'publisher' => 'required|string|max:100',
             'isbn' => 'required|string|max:100|unique:books,isbn,' . $this->id,
-            'quantity' => 'required|integer',
+            'quantity' => 'required',
         ];
+
+        if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+            unset($rules['isbn']);
+        }
+        return $rules;
     }
 
     public function messages()

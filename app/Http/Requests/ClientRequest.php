@@ -8,16 +8,20 @@ class ClientRequest extends FormRequest
 {
     public function rules(): array
     {
-        return [
+        $rules = [
             'name' => 'required',
             'email' => 'required|email|unique:clients,email,' . $this->id,
             'phone' => 'required',
             'address' => 'required',
             'city' => 'required',
             'state' => 'required|size:2',
-            'zipcode' => 'required',
+            'zipcode' => 'required|size:8',
             'country' => 'required'
         ];
+        if ($this->isMethod('PUT') || $this->isMethod('PATCH')) {
+            unset($rules['email']);
+        }
+        return $rules;
     }
 
     public function messages(): array
@@ -34,6 +38,7 @@ class ClientRequest extends FormRequest
             'zipcode.required' => 'CEP é obrigatório',
             'country.required' => 'País é obrigatório',
             'state.size' => 'Estado deve ter 2 caracteres',
+            'zipcode.size' => 'CEP deve ter 8 caracteres'
         ];
     }
 

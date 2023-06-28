@@ -15,5 +15,6 @@ class Book extends Model
         'publisher',
         'isbn',
         'emprestimo_id',
+        'quantity'
     ];
 }
