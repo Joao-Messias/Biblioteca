@@ -28,11 +28,11 @@
                     <x-nav-link :href="route('clients.create')" :active="request()->routeIs('clients.create')">
                         {{ __('Cadastrar Clientes') }}
                     </x-nav-link>
-                    <x-nav-link>
-                        {{ __('Cadastrar Empréstimos') }}
+                    <x-nav-link :href="route('loans.index')" :active="request()->routeIs('loans.index')">
+                        {{ __('Empréstimos') }}
                     </x-nav-link>
-                    <x-nav-link>
-                        {{ __('Visualizar Empréstimos') }}
+                    <x-nav-link :href="route('loans.create')" :active="request()->routeIs('loans.create')">
+                        {{ __('Realizar Empréstimo') }}
                     </x-nav-link>
 
                 </div>

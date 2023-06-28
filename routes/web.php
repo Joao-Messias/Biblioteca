@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use \App\Http\Controllers\Book\BookController;
 use \App\Http\Controllers\Clients\ClientsController;
+use \App\Http\Controllers\Loans\LoansController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/clients/edit/{client}', [ClientsController::class, 'edit'])->name('clients.edit');
     Route::put('/clients/edit/{client}', [ClientsController::class, 'update'])->name('clients.update');
     Route::delete('/clients/delete/{client}', [ClientsController::class, 'destroy'])->name('clients.destroy');
+    Route::get('/loans', [LoansController::class, 'index'])->name('loans.index');
+    Route::get('/loans/create', [LoansController::class, 'create'])->name('loans.create');
+    Route::post('/loans/create', [LoansController::class, 'store'])->name('loans.store');
+    Route::put('/loans/return/{loan}', [LoansController::class, 'return'])->name('loans.return');
 });
 
 require __DIR__ . '/auth.php';

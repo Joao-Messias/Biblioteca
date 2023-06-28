@@ -34,6 +34,12 @@
                             <x-text-input id="isbn" class="block mt-1 w-full" type="text" name="isbn"
                                           :value="$book->isbn" required autofocus/>
                         </div>
+                        <div class="col-span-2 sm:col-span-1">
+                            <x-input-label for="quantity" :value="__('Quantidade')"/>
+                            <x-text-input id="quantity" class="block mt-1 w-full" type="number" name="quantity"
+                                          :value="$book->quantity" required autofocus/>
+                        </div>
+
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button class="ml-4">
                                 {{ __('Salvar Alterações') }}

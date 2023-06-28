@@ -19,12 +19,20 @@
                         @csrf
                         <div class="flex flex-wrap -mx-3 mb-6">
                             <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                                <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-200 text-xs font-bold mb-2" for="q">
+                                <label
+                                    class="block uppercase tracking-wide text-gray-700 dark:text-gray-200 text-xs font-bold mb-2"
+                                    for="q">
                                     {{ __("Pesquisa") }}
                                 </label>
                                 <div class="flex">
-                                    <input class="appearance-none block w-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-l py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white dark:focus:bg-gray-600" id="q" name="q" type="text" placeholder="{{ __("Digite o título do livro ou o ISBN") }}" value="{{ old('q') }}">
-                                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r" type="submit">
+                                    <input
+                                        class="appearance-none block w-full bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 border border-gray-200 dark:border-gray-700 rounded-l py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white dark:focus:bg-gray-600"
+                                        id="q" name="q" type="text"
+                                        placeholder="{{ __("Digite o título do livro ou o ISBN") }}"
+                                        value="{{ old('q') }}">
+                                    <button
+                                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-r"
+                                        type="submit">
                                         {{ __("Pesquisar") }}
                                     </button>
                                 </div>
@@ -44,16 +52,19 @@
                             <th class="px-4 py-2">{{ __("Autor") }}</th>
                             <th class="px-4 py-2">{{ __("Editora") }}</th>
                             <th class="px-4 py-2">{{ __("ISBN") }}</th>
+                            <th class="px-4 py-2">{{ __("Quantidade") }}</th>
                             <th class="px-4 py-2">{{ __("Ações") }}</th>
                         </tr>
                         </thead>
-                        <tbody>
+
                         @foreach($books as $book)
+                            <tbody>
                             <tr>
                                 <td class="border px-4 py-2 text-center">{{ $book->title }}</td>
                                 <td class="border px-4 py-2 text-center">{{ $book->author }}</td>
                                 <td class="border px-4 py-2 text-center">{{ $book->publisher }}</td>
                                 <td class="border px-4 py-2 text-center">{{ $book->isbn }}</td>
+                                <td class="border px-4 py-2 text-center">{{ $book->quantity }}</td>
                                 <td class="border px-4 py-2 text-center">
                                     <a
                                         href="{{ route('book.edit', $book->id) }}"
@@ -72,7 +83,7 @@
                                     </form>
                                 </td>
                             </tr>
-                        </tbody>
+                            </tbody>
                         @endforeach
 
                     </table>
