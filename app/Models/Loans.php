@@ -14,6 +14,7 @@ class Loans extends Model
         'loan_date',
         'return_date',
         'status',
+        'name'
     ];
 
     public function book()

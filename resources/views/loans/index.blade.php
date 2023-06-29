@@ -60,7 +60,7 @@
                             <tbody>
                             <tr>
                                 <td class="border px-4 py-2 text-center">{{ $loan->book->title }}</td>
-                                <td class="border px-4 py-2 text-center">{{ $loan->client->name }}</td>
+                                <td class="border px-4 py-2 text-center">{{ $loan->name ?? 'Cliente não encontrado' }}</td>
                                 <td class="border px-4 py-2 text-center">{{ $loan->book->isbn }}</td>
                                 <td class="border px-4 py-2 text-center">{{ $loan->quantity }}</td>
                                 <td class="border px-4 py-2 text-center">{{ $loan->status }}</td>

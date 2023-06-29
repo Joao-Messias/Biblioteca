@@ -43,6 +43,8 @@ class LoansController extends Controller
         $loans->return_date = $validated['return_date'];
         $loans->status = 'Locado';
         $loans->quantity = $validated['quantity'];
+        $cliente = Clients::find($validated['client']);
+        $loans->name = $cliente->name;
         $loans->save();
         $book = Book::find($validated['book']);
         $book->quantity = $book->quantity - $validated['quantity'];
